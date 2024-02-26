@@ -8,7 +8,7 @@ from tkinter import messagebox
 
 logger = log.get_logger()
 
-def save_report_to_csv(input, output_file):
+def save_report_to_csv(profile, input, output_file):
     """
     Function to save the report as a CSV file
 
@@ -27,7 +27,7 @@ def save_report_to_csv(input, output_file):
         if not os.path.exists(report_folder):
             os.makedirs(report_folder)
 
-        csv_filepath = os.path.join(report_folder, output_file)
+        csv_filepath = os.path.join(report_folder, profile+"-"+output_file)
 
         df = pd.DataFrame(input)
         df.to_csv(csv_filepath, index=False)

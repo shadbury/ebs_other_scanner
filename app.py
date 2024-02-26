@@ -76,10 +76,10 @@ def main():
 
         # Save the CSV report
         if ebs_volumes_dataframe is not None:
-            save_report_to_csv(ebs_volumes_dataframe, "ebs_volumes_report.csv")
+            save_report_to_csv(profile, ebs_volumes_dataframe, "ebs_volumes_report.csv")
             open_file("reports/ebs_volumes_report.csv")
         if snapshot_dataframe is not None:
-            save_report_to_csv(snapshot_dataframe, "snapshots_report.csv")
+            save_report_to_csv(profile, snapshot_dataframe, "snapshots_report.csv")
             open_file("reports/snapshots_report.csv")
         if ebs_volumes_dataframe is None and snapshot_dataframe is None:
             logger.warning("No data to save.")
@@ -97,5 +97,5 @@ if __name__ == "__main__":
     log_file_path = "logs/app.log"
 
     # Clear the log file at the beginning of the script
-    clear_log_file(log_file_path)
+    #clear_log_file(log_file_path)
     main()

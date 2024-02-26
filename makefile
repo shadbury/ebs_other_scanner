@@ -19,7 +19,10 @@ install:
 
 # Run the app with AWS profile and optional region arguments
 run: install
-	. $(ACTIVATE_VENV) && $(PYTHON) app.py $(PROFILE) $(REGION)
+	@IFS=' '; \
+	for profile in $(PROFILES); do \
+		. $(ACTIVATE_VENV) && $(PYTHON) app.py $$profile $(REGION); \
+	done
 
 # Clean up the virtual environment
 clean:
